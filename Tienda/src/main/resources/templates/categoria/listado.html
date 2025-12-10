@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Listado de Categorías</title>
+</head>
+
+<body>
+
+<header th:replace="~{layout/plantilla :: header}"></header>
+
+<main class="container mt-4">
+
+    <h2>Listado de Categorías</h2>
+
+    <a class="btn btn-primary mb-3" th:href="@{/categoria/nuevo}">Nueva Categoría</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="categoria : ${categorias}">
+            <td th:text="${categoria.idCategoria}"></td>
+            <td th:text="${categoria.descripcion}"></td>
+
+            <td>
+                <a class="btn btn-warning btn-sm"
+                   th:href="@{/categoria/modificar/{id}(id=${categoria.idCategoria})}">
+                    Modificar
+                </a>
+            </td>
+
+            <td>
+                <a class="btn btn-danger btn-sm"
+                   th:href="@{/categoria/eliminar/{id}(id=${categoria.idCategoria})}">
+                    Eliminar
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</main>
+
+<footer th:replace="~{layout/plantilla :: footer}"></footer>
+
+</body>
+</html>

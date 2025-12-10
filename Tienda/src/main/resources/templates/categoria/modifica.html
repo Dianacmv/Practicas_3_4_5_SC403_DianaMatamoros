@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Editar Categoría</title>
+</head>
+
+<body>
+
+<header th:replace="~{layout/plantilla :: header}"></header>
+
+<main class="container mt-4">
+
+    <h2 th:text="${categoria.idCategoria == null ? 'Nueva Categoría' : 'Editar Categoría'}"></h2>
+
+    <form th:action="@{/categoria/guardar}" th:object="${categoria}" method="post">
+        <input type="hidden" th:field="*{idCategoria}"/>
+
+        <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <input class="form-control" type="text" th:field="*{descripcion}" required>
+        </div>
+
+        <button class="btn btn-success" type="submit">Guardar</button>
+        <a class="btn btn-secondary" th:href="@{/categoria/listado}">Cancelar</a>
+    </form>
+
+</main>
+
+<footer th:replace="~{layout/plantilla :: footer}"></footer>
+
+</body>
+</html>

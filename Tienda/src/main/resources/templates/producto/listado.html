@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Listado de Productos</title>
+</head>
+
+<body>
+
+<header th:replace="~{layout/plantilla :: header}"></header>
+
+<main class="container mt-4">
+
+    <h2>Listado de Productos</h2>
+
+    <a class="btn btn-primary mb-3" th:href="@{/producto/nuevo}">Nuevo Producto</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Existencias</th>
+            <th>Categoría</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="producto : ${productos}">
+            <td th:text="${producto.idProducto}"></td>
+            <td th:text="${producto.descripcion}"></td>
+            <td th:text="${producto.precio}"></td>
+            <td th:text="${producto.existencias}"></td>
+            <td th:text="${producto.categoria.descripcion}"></td>
+
+            <td>
+                <a class="btn btn-warning btn-sm"
+                   th:href="@{/producto/modificar/{id}(id=${producto.idProducto})}">
+                    Modificar
+                </a>
+            </td>
+
+            <td>
+                <a class="btn btn-danger btn-sm"
+                   th:href="@{/producto/eliminar/{id}(id=${producto.idProducto})}">
+                    Eliminar
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</main>
+
+<footer th:replace="~{layout/plantilla :: footer}"></footer>
+
+</body>
+</html>
+

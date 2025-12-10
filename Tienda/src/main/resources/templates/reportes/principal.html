@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Reportes</title>
+</head>
+
+<body>
+
+<header th:replace="~{layout/plantilla :: header}"></header>
+
+<main class="container mt-4">
+    <h1 class="text-center">Reportes de la tienda</h1>
+
+    <p class="text-center">
+        
+    </p>
+
+    <div class="text-center mt-4">
+        <a class="btn btn-primary"
+           th:href="@{/reportes/reporteProductos}">
+            Descargar reporte de productos (PDF)
+        </a>
+    </div>
+</main>
+
+<footer th:replace="~{layout/plantilla :: footer}"></footer>
+
+</body>
+</html>
