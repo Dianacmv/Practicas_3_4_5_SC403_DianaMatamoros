@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.io.IOException;
 import java.util.HashMap;
 
+// Para generar reportes
 @Controller
 @RequestMapping("/reportes")
 public class ReporteController {
